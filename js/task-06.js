@@ -2,12 +2,16 @@ const inputElRef = document.querySelector("#validation-input");
 const dataLenthRef = +inputElRef.dataset.length;
 console.log(dataLenthRef);
 
-inputElRef.addEventListener("input", inputChange);
+inputElRef.addEventListener("blur", inputChange);
 
 function inputChange(event) {
-  if (event.currentTarget.value === dataLenthRef) {
-    inputElRef.classList.add("valid");
+  if (event.currentTarget.value.length === dataLenthRef) {
+    setClass("valid", "invalid");
   } else {
-    inputElRef.classList.remove("invalid");
+    setClass("invalid", "valid");
   }
+}
+function setClass(newClass, oldClass) {
+  inputElRef.classList.add(newClass);
+  inputElRef.classList.remove(oldClass);
 }
