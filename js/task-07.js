@@ -6,10 +6,6 @@
 const inputRef = document.querySelector("#font-size-control");
 const textRef = document.querySelector("#text");
 
-inputRef.addEventListener("blur", (event) => {
-  const input = event.target;
-  console.log(input);
-  if (input.value === event) {
-    inputRef.classList.add("font - size");
-  }
+inputRef.addEventListener("input", () => {
+  textRef.style.fontSize = `${inputRef.value}px`;
 });
